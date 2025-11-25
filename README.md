@@ -1,3 +1,7 @@
-# FarewellSteelSoul
+# Farewell Steel Soul
 
-An overly dramatic Steel Soul death.
+Death in Steel Soul mode deserves a grand funeral.
+
+## Mod Showcase
+
+[![Watch the video](https://img.youtube.com/vi/MT0UnERtf7o/0.jpg)](https://www.youtube.com/watch?v=MT0UnERtf7o)

@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 # The name of the team you are publishing as
 namespace = "EchoLinger"
 # max 250 characters
-description = "An overly dramatic Steel Soul death"
+description = "Death in Steel Soul mode deserves a grand funeral."
 
 # Replace this with a correct repo URL if the default is not accurate
 websiteUrl = "https://github.com/EchoLinger/Farewell-Steel-Soul"
