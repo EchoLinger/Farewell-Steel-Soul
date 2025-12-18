@@ -18,6 +18,7 @@ public partial class FarewellSteelSoul : BaseUnityPlugin
     {
         Log = Logger;
         Instance = this;
+        Register();
         Harmony.CreateAndPatchAll(typeof(FarewellSteelSoul).Assembly);
         Log.LogInfo($"Plugin {Name} ({Id}) has loaded!");
     }
