@@ -4,16 +4,16 @@ namespace FarewellSteelSoul;
 
 public partial class FarewellSteelSoul
 {
-    private static ConfigEntry<bool> DisableJournal;
-    private static ConfigEntry<bool> DisableQuest;
-    private static ConfigEntry<bool> DisableCrest;
-    private static ConfigEntry<bool> DisableCredits;
+    private static ConfigEntry<bool> ShowJournal;
+    private static ConfigEntry<bool> ShowQuest;
+    private static ConfigEntry<bool> ShowCrest;
+    private static ConfigEntry<bool> ShowCredits;
 
     private void Register()
     {
-        DisableJournal = Config.Bind("Settings", "DisableJournal", false, "Disable journal updated message");
-        DisableQuest = Config.Bind("Settings", "DisableQuest", false, "Disable wish granted message");
-        DisableCrest = Config.Bind("Settings", "DisableCrest", false, "Disable crest bound message");
-        DisableCredits = Config.Bind("Settings", "DisableCredits", false, "Disable ending credits");
+        ShowJournal = Config.Bind("Settings", "ShowJournal", true, "Show journal updated message");
+        ShowQuest = Config.Bind("Settings", "ShowQuest", true, "Show wish granted message");
+        ShowCrest = Config.Bind("Settings", "ShowCrest", true, "Show crest bound message");
+        ShowCredits = Config.Bind("Settings", "ShowCredits", true, "Show ending credits");
     }
 }
