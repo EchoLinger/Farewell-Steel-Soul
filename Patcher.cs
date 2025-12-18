@@ -13,16 +13,36 @@ public partial class FarewellSteelSoul
 
     private static IEnumerator Chain()
     {
-        var go = EnemyJournalManager._instance.journalUpdateMessage;
-        var fsm = PlayMakerFSM.FindFsmOnGameObject(go, "Journal Msg");
-        yield return new WaitUntil(() => fsm == null || fsm is { ActiveStateName: "End" or "Ended" });
-        yield return _waitForSeconds1;
-        yield return ShowQuestMsg();
-        yield return _waitForSeconds2;
-        yield return ShowCrestMsg();
-        yield return _waitForSeconds2;
-        GameManager.ReportUnload(SceneManager.GetActiveScene().name);
-        GameManager.instance.LoadScene("End_Credits");
+        if (ShowJournal.Value)
+        {
+            var go = EnemyJournalManager._instance.journalUpdateMessage;
+            var fsm = PlayMakerFSM.FindFsmOnGameObject(go, "Journal Msg");
+            yield return new WaitUntil(() => fsm == null || fsm is { ActiveStateName: "End" or "Ended" });
+        }
+
+        if (ShowQuest.Value)
+        {
+            yield return _waitForSeconds1;
+            yield return ShowQuestMsg();
+        }
+
+        if (ShowCrest.Value)
+        {
+            yield return _waitForSeconds2;
+            yield return ShowCrestMsg();
+        }
+
+        if (ShowCredits.Value)
+        {
+            yield return _waitForSeconds2;
+            GameManager.ReportUnload(SceneManager.GetActiveScene().name);
+            GameManager.instance.LoadScene("End_Credits");
+        }
+        else
+        {
+            IsPermaDeath = false;
+            GameManager.instance.LoadScene("PermaDeath");
+        }
     }
 
     private static bool IsPermaDeath;
@@ -34,7 +54,7 @@ public partial class FarewellSteelSoul
         public static void Prefix(GameManager __instance)
         {
             IsPermaDeath = __instance.playerData.permadeathMode == PermadeathModes.Dead;
-            if (IsPermaDeath)
+            if (IsPermaDeath && ShowJournal.Value)
             {
                 ShowJournalMsg();
             }
